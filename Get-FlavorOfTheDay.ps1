@@ -16,8 +16,10 @@ Begin {
 
 Process {
   
+  #Loop through each inputed resturant in the Resturant array input parameter
   ForEach ($Resturant_Current in $Resturant) {
 
+    #Find resturant mode pulls up their resturant finder in a browser
     If ($FindResturant) {
       Start-Process "http://www.culvers.com/locator/view-all-locations"
       Exit
