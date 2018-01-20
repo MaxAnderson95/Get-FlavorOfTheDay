@@ -9,6 +9,12 @@ PARAM (
 
 Begin {
 
+  #Find resturant mode pulls up their resturant finder in a browser
+  If ($FindResturant) {
+    Start-Process "http://www.culvers.com/locator/view-all-locations"
+    Exit
+  }  
+  
   #Create an Empty Array
   $Output = @()
 
@@ -18,13 +24,6 @@ Process {
   
   #Loop through each inputed resturant in the Resturant array input parameter
   ForEach ($Resturant_Current in $Resturant) {
-
-    #Find resturant mode pulls up their resturant finder in a browser
-    If ($FindResturant) {
-      Start-Process "http://www.culvers.com/locator/view-all-locations"
-      Exit
-    }
-
 
     #Runs the Invoke-WebRequest on the requested resturant
     $WebRequest = Invoke-WebRequest -Uri "http://www.culvers.com/restaurants/$Resturant_Current"
