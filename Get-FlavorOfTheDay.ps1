@@ -1,6 +1,6 @@
 [Cmdletbinding()]
 PARAM (
-  [Parameter(Mandatory=$True,Position=0,ParameterSetName='EnterResturant')]
+  [Parameter(Mandatory=$True,Position=0,ParameterSetName='EnterResturant',ValueFromPipeline=$true)]
   [String[]]$Resturant,
 
   [Parameter(Mandatory=$False,Position=0,ParameterSetName='FindResturant')]
@@ -49,11 +49,11 @@ Process {
 
   }
 
-  #Output the array  
-  Write-Output $Output  
-
 }
 
 End {
+
+  #Output the array  
+  Write-Output $Output  
 
 }
